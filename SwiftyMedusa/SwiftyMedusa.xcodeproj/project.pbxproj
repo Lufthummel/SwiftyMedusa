@@ -13,7 +13,24 @@
 		B294E3711D66EEC80051017D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B294E3701D66EEC80051017D /* Assets.xcassets */; };
 		B294E3741D66EEC80051017D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B294E3721D66EEC80051017D /* LaunchScreen.storyboard */; };
 		B294E37C1D66F6190051017D /* RoundPushButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294E37B1D66F6190051017D /* RoundPushButton.swift */; };
+		B2A3FF511D6D9571001CA8CA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A3FF4D1D6D9571001CA8CA /* Alamofire.framework */; };
+		B2A3FF581D6D95BE001CA8CA /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A3FF4E1D6D9571001CA8CA /* Locksmith.framework */; };
+		B2A3FF5A1D6D95BE001CA8CA /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A3FF4F1D6D9571001CA8CA /* PromiseKit.framework */; };
+		B2A3FF5C1D6D95BE001CA8CA /* SwiftlySalesforce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A3FF501D6D9571001CA8CA /* SwiftlySalesforce.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B2A3FF5E1D6D95BE001CA8CA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B294E3661D66EEC80051017D /* SwiftyMedusa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyMedusa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +44,10 @@
 		B294E37E1D66FF040051017D /* SwiftLanguagePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftLanguagePlayground.playground; sourceTree = "<group>"; };
 		B294E3801D67100A0051017D /* UI_Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UI_Playground.playground; sourceTree = "<group>"; };
 		B294E3811D6717AE0051017D /* Salesforce_Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Salesforce_Playground.playground; sourceTree = "<group>"; };
+		B2A3FF4D1D6D9571001CA8CA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = /Users/hkremmin/devel/df/SwiftyMedusa/SwiftyMedusa/SwiftyMedusa/Frameworks/Alamofire.framework; sourceTree = "<absolute>"; };
+		B2A3FF4E1D6D9571001CA8CA /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = /Users/hkremmin/devel/df/SwiftyMedusa/SwiftyMedusa/SwiftyMedusa/Frameworks/Locksmith.framework; sourceTree = "<absolute>"; };
+		B2A3FF4F1D6D9571001CA8CA /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = /Users/hkremmin/devel/df/SwiftyMedusa/SwiftyMedusa/SwiftyMedusa/Frameworks/PromiseKit.framework; sourceTree = "<absolute>"; };
+		B2A3FF501D6D9571001CA8CA /* SwiftlySalesforce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftlySalesforce.framework; path = /Users/hkremmin/devel/df/SwiftyMedusa/SwiftyMedusa/SwiftyMedusa/Frameworks/SwiftlySalesforce.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +55,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A3FF5C1D6D95BE001CA8CA /* SwiftlySalesforce.framework in Frameworks */,
+				B2A3FF5A1D6D95BE001CA8CA /* PromiseKit.framework in Frameworks */,
+				B2A3FF511D6D9571001CA8CA /* Alamofire.framework in Frameworks */,
+				B2A3FF581D6D95BE001CA8CA /* Locksmith.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +68,7 @@
 		B294E35D1D66EEC80051017D = {
 			isa = PBXGroup;
 			children = (
+				B2A3FF4C1D6D93F3001CA8CA /* Frameworks */,
 				B294E37F1D66FF230051017D /* Playgrounds */,
 				B294E37D1D66F6250051017D /* Code */,
 				B294E3681D66EEC80051017D /* SwiftyMedusa */,
@@ -89,6 +115,13 @@
 			name = Playgrounds;
 			sourceTree = "<group>";
 		};
+		B2A3FF4C1D6D93F3001CA8CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,6 +132,7 @@
 				B294E3621D66EEC80051017D /* Sources */,
 				B294E3631D66EEC80051017D /* Frameworks */,
 				B294E3641D66EEC80051017D /* Resources */,
+				B2A3FF5E1D6D95BE001CA8CA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -287,6 +321,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6Z9S65U7VK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SwiftyMedusa/Frameworks",
+				);
 				INFOPLIST_FILE = SwiftyMedusa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -302,6 +340,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6Z9S65U7VK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SwiftyMedusa/Frameworks",
+				);
 				INFOPLIST_FILE = SwiftyMedusa/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -330,6 +372,7 @@
 				B294E37A1D66EEC80051017D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
