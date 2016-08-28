@@ -7,25 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2257B381D6DC0E8009802C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2257B371D6DC0E8009802C2 /* Launch Screen.storyboard */; };
+		B2257B3A1D6DC146009802C2 /* TheStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2257B391D6DC146009802C2 /* TheStoryboard.storyboard */; };
+		B2257B401D705DC3009802C2 /* MotionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2257B3F1D705DC3009802C2 /* MotionKit.swift */; };
 		B294E36A1D66EEC80051017D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294E3691D66EEC80051017D /* AppDelegate.swift */; };
 		B294E36C1D66EEC80051017D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294E36B1D66EEC80051017D /* ViewController.swift */; };
-		B294E36F1D66EEC80051017D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B294E36D1D66EEC80051017D /* Main.storyboard */; };
 		B294E3711D66EEC80051017D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B294E3701D66EEC80051017D /* Assets.xcassets */; };
-		B294E3741D66EEC80051017D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B294E3721D66EEC80051017D /* LaunchScreen.storyboard */; };
 		B294E37C1D66F6190051017D /* RoundPushButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294E37B1D66F6190051017D /* RoundPushButton.swift */; };
-		B2A3FF511D6D9571001CA8CA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A3FF4D1D6D9571001CA8CA /* Alamofire.framework */; };
-		B2A3FF581D6D95BE001CA8CA /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A3FF4E1D6D9571001CA8CA /* Locksmith.framework */; };
-		B2A3FF5A1D6D95BE001CA8CA /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A3FF4F1D6D9571001CA8CA /* PromiseKit.framework */; };
-		B2A3FF5C1D6D95BE001CA8CA /* SwiftlySalesforce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A3FF501D6D9571001CA8CA /* SwiftlySalesforce.framework */; };
+		B2A3E0371D7066FB00F09A94 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2257B231D6DBC7C009802C2 /* Alamofire.framework */; };
+		B2A3E0381D7066FB00F09A94 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2257B231D6DBC7C009802C2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B2A3E0391D7066FB00F09A94 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2257B241D6DBC7C009802C2 /* Locksmith.framework */; };
+		B2A3E03A1D7066FB00F09A94 /* Locksmith.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2257B241D6DBC7C009802C2 /* Locksmith.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B2A3E03B1D7066FB00F09A94 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2257B251D6DBC7C009802C2 /* PromiseKit.framework */; };
+		B2A3E03C1D7066FB00F09A94 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2257B251D6DBC7C009802C2 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B2A3E03D1D7066FB00F09A94 /* SwiftlySalesforce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2257B261D6DBC7C009802C2 /* SwiftlySalesforce.framework */; };
+		B2A3E03E1D7066FB00F09A94 /* SwiftlySalesforce.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2257B261D6DBC7C009802C2 /* SwiftlySalesforce.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B2A3FF5E1D6D95BE001CA8CA /* Embed Frameworks */ = {
+		B2A3E03F1D7066FB00F09A94 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B2A3E03E1D7066FB00F09A94 /* SwiftlySalesforce.framework in Embed Frameworks */,
+				B2A3E03C1D7066FB00F09A94 /* PromiseKit.framework in Embed Frameworks */,
+				B2A3E0381D7066FB00F09A94 /* Alamofire.framework in Embed Frameworks */,
+				B2A3E03A1D7066FB00F09A94 /* Locksmith.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,21 +42,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B2257B231D6DBC7C009802C2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = SwiftyMedusa/Frameworks/Alamofire.framework; sourceTree = "<group>"; };
+		B2257B241D6DBC7C009802C2 /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = SwiftyMedusa/Frameworks/Locksmith.framework; sourceTree = "<group>"; };
+		B2257B251D6DBC7C009802C2 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = SwiftyMedusa/Frameworks/PromiseKit.framework; sourceTree = "<group>"; };
+		B2257B261D6DBC7C009802C2 /* SwiftlySalesforce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftlySalesforce.framework; path = SwiftyMedusa/Frameworks/SwiftlySalesforce.framework; sourceTree = "<group>"; };
+		B2257B371D6DC0E8009802C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		B2257B391D6DC146009802C2 /* TheStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TheStoryboard.storyboard; sourceTree = "<group>"; };
+		B2257B3F1D705DC3009802C2 /* MotionKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotionKit.swift; path = SwiftyMedusa/Code/MotionKit.swift; sourceTree = "<group>"; };
 		B294E3661D66EEC80051017D /* SwiftyMedusa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyMedusa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B294E3691D66EEC80051017D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B294E36B1D66EEC80051017D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B294E36E1D66EEC80051017D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B294E3701D66EEC80051017D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B294E3731D66EEC80051017D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B294E3751D66EEC80051017D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B294E37B1D66F6190051017D /* RoundPushButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundPushButton.swift; path = SwiftyMedusa/Code/RoundPushButton.swift; sourceTree = "<group>"; };
 		B294E37E1D66FF040051017D /* SwiftLanguagePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftLanguagePlayground.playground; sourceTree = "<group>"; };
 		B294E3801D67100A0051017D /* UI_Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UI_Playground.playground; sourceTree = "<group>"; };
 		B294E3811D6717AE0051017D /* Salesforce_Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Salesforce_Playground.playground; sourceTree = "<group>"; };
-		B2A3FF4D1D6D9571001CA8CA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = /Users/hkremmin/devel/df/SwiftyMedusa/SwiftyMedusa/SwiftyMedusa/Frameworks/Alamofire.framework; sourceTree = "<absolute>"; };
-		B2A3FF4E1D6D9571001CA8CA /* Locksmith.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Locksmith.framework; path = /Users/hkremmin/devel/df/SwiftyMedusa/SwiftyMedusa/SwiftyMedusa/Frameworks/Locksmith.framework; sourceTree = "<absolute>"; };
-		B2A3FF4F1D6D9571001CA8CA /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = /Users/hkremmin/devel/df/SwiftyMedusa/SwiftyMedusa/SwiftyMedusa/Frameworks/PromiseKit.framework; sourceTree = "<absolute>"; };
-		B2A3FF501D6D9571001CA8CA /* SwiftlySalesforce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftlySalesforce.framework; path = /Users/hkremmin/devel/df/SwiftyMedusa/SwiftyMedusa/SwiftyMedusa/Frameworks/SwiftlySalesforce.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +65,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2A3FF5C1D6D95BE001CA8CA /* SwiftlySalesforce.framework in Frameworks */,
-				B2A3FF5A1D6D95BE001CA8CA /* PromiseKit.framework in Frameworks */,
-				B2A3FF511D6D9571001CA8CA /* Alamofire.framework in Frameworks */,
-				B2A3FF581D6D95BE001CA8CA /* Locksmith.framework in Frameworks */,
+				B2A3E03D1D7066FB00F09A94 /* SwiftlySalesforce.framework in Frameworks */,
+				B2A3E03B1D7066FB00F09A94 /* PromiseKit.framework in Frameworks */,
+				B2A3E0371D7066FB00F09A94 /* Alamofire.framework in Frameworks */,
+				B2A3E0391D7066FB00F09A94 /* Locksmith.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,10 +99,10 @@
 			children = (
 				B294E3691D66EEC80051017D /* AppDelegate.swift */,
 				B294E36B1D66EEC80051017D /* ViewController.swift */,
-				B294E36D1D66EEC80051017D /* Main.storyboard */,
 				B294E3701D66EEC80051017D /* Assets.xcassets */,
-				B294E3721D66EEC80051017D /* LaunchScreen.storyboard */,
 				B294E3751D66EEC80051017D /* Info.plist */,
+				B2257B371D6DC0E8009802C2 /* Launch Screen.storyboard */,
+				B2257B391D6DC146009802C2 /* TheStoryboard.storyboard */,
 			);
 			path = SwiftyMedusa;
 			sourceTree = "<group>";
@@ -100,6 +110,7 @@
 		B294E37D1D66F6250051017D /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				B2257B3F1D705DC3009802C2 /* MotionKit.swift */,
 				B294E37B1D66F6190051017D /* RoundPushButton.swift */,
 			);
 			name = Code;
@@ -118,6 +129,10 @@
 		B2A3FF4C1D6D93F3001CA8CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2257B231D6DBC7C009802C2 /* Alamofire.framework */,
+				B2257B241D6DBC7C009802C2 /* Locksmith.framework */,
+				B2257B251D6DBC7C009802C2 /* PromiseKit.framework */,
+				B2257B261D6DBC7C009802C2 /* SwiftlySalesforce.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,7 +147,7 @@
 				B294E3621D66EEC80051017D /* Sources */,
 				B294E3631D66EEC80051017D /* Frameworks */,
 				B294E3641D66EEC80051017D /* Resources */,
-				B2A3FF5E1D6D95BE001CA8CA /* Embed Frameworks */,
+				B2A3E03F1D7066FB00F09A94 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,9 +198,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B294E3741D66EEC80051017D /* LaunchScreen.storyboard in Resources */,
 				B294E3711D66EEC80051017D /* Assets.xcassets in Resources */,
-				B294E36F1D66EEC80051017D /* Main.storyboard in Resources */,
+				B2257B3A1D6DC146009802C2 /* TheStoryboard.storyboard in Resources */,
+				B2257B381D6DC0E8009802C2 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2257B401D705DC3009802C2 /* MotionKit.swift in Sources */,
 				B294E36C1D66EEC80051017D /* ViewController.swift in Sources */,
 				B294E36A1D66EEC80051017D /* AppDelegate.swift in Sources */,
 				B294E37C1D66F6190051017D /* RoundPushButton.swift in Sources */,
@@ -203,25 +219,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B294E36D1D66EEC80051017D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B294E36E1D66EEC80051017D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B294E3721D66EEC80051017D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B294E3731D66EEC80051017D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B294E3761D66EEC80051017D /* Debug */ = {
