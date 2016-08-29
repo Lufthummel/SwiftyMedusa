@@ -2,7 +2,6 @@
 import UIKit
 import XCPlayground
 import WebKit
-import PlaygroundSupport
 import Foundation
 
 
@@ -14,6 +13,8 @@ let consumerSecret = "4015431462162252575"
 let redirectUri = "https://minaxsoft-developer-edition.na17.force.com"
 let username = "dave%40minaxsoft.de"
 let pw = "****"
+let securityToken = "DpjyNlNvV3V4Ze1rJ1oG8ZsW"
+let pws = pw + securityToken
 
 let myInstanceCode = "https://login.salesforce.com/services/oauth2/authorize"
 let myInstanceToken = "https://minaxsoft-developer-edition.na17.force.com/services/oauth2/token"
@@ -23,16 +24,13 @@ let code = "code"
 //let grantType = "authorization_code"
 let grantType = "password"
 
-let oauthPwString = "grant_type=\(grantType)&client_id=\(consumerKey)&client_secret=\(consumerSecret)&username=\(username)&password=\(pw)&format=json"
+let oauthPwString = "grant_type=\(grantType)&client_id=\(consumerKey)&client_secret=\(consumerSecret)&username=\(username)&password=\(pws)&format=json"
 let oauthAuthString = "response_type=\(code)&client_id=\(consumerKey)&redirect_uri=\(redirectUri)"
 let oauthPostString = "response_type=\(code)&grant_type=\(grantType)&client_id=\(consumerKey)&client_secret=\(consumerSecret)&redirect_uri=\(redirectUri)"
 // -------------------------------------------------------------------------------"
 
-PlaygroundPage.current.needsIndefiniteExecution = true //async stuff
+XCPlaygroundPage.currentPage.needsIndefiniteExecution = true //async stuff
 
-print (oauthPostString)
-print (oauthAuthString)
-print (oauthPwString)
 
 let posturl = myInstanceCode + "?" + oauthAuthString
 
@@ -42,53 +40,45 @@ let frame = CGRect(x: 0, y: 0, width: 800, height:800)
 let web = WKWebView(frame: frame)
 
 
-if let oauthPage = URL(string: posturl) {
+if let oauthPage = NSURL(string: posturl) {
     
-    var rq = URLRequest(url: oauthPage)
+    var rq = NSMutableURLRequest(URL: oauthPage)
     
-    rq.httpMethod = "POST"
+    rq.HTTPMethod = "POST"
     rq.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
     
+    web.loadRequest(rq)
     
+    XCPlaygroundPage.currentPage.liveView = web
     
-    
-    
-    web.load(rq)
-    
-    web.url
-    PlaygroundPage.current.liveView = web
-    web.url
 }
 
 
 
 
-
-
+//username - password flow -> for demonstration only!!!
 /*
- if let url = URL(string:"https://itunes.apple.com/search?term=jack+johnson&limit=5") {
+ let pwurl = myInstanceToken
+ if let oauthPWPage = NSURL(string: pwurl) {
  
- 
- let nsd = NSData(contentsOf: url)
- 
- var datastring = NSString(data: nsd! as Data, encoding: String.Encoding.utf8.rawValue)
- 
- print (datastring)
+    var rq = NSMutableURLRequest(URL: oauthPWPage)
+    
+    rq.HTTPMethod = "POST"
+    rq.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+    rq.HTTPBody = oauthPwString.dataUsingEncoding(NSUTF8StringEncoding)
+    let task = NSURLSession.sharedSession().dataTaskWithRequest(rq) { data, response, error in
+        let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+        let responseString = response?.description
+        let errorString = error?.description
+        print("\n responseString = \(responseString) \n")
+        print("dataString = \(dataString) \n")
+        print("errorString = \(errorString)")
+    }
+    task.resume()
+    
+
  }
  
+*/
  
- 
- 
- 
- //let url2 = URL(string:"http://www.heise.de")
- 
- if let loginPage = URL(string: "https://login.salesforce.com") {
- 
- let rq = URLRequest(url: loginPage)
- print (rq)
- web.load(rq)
- PlaygroundPage.current.liveView = web
- 
- }
- 
- */
+
