@@ -12,7 +12,7 @@ let consumerKey = "3MVG9xOCXq4ID1uFuYvTJhxH5YFcbPl5OW.wzPUD6AotC.l7Lj1cYKDaKnZGN
 let consumerSecret = "4015431462162252575"
 let redirectUri = "https://minaxsoft-developer-edition.na17.force.com"
 let username = "dave%40dreamforce.com"
-let pw = "Dreamforce2016"
+let pw = "****"
 let securityToken = "DpjyNlNvV3V4Ze1rJ1oG8ZsW"
 let pws = pw + securityToken
 
