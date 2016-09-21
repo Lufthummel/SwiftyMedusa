@@ -19,7 +19,7 @@ class RoundPushButtonView: UIButton {
     var activity = false {
         didSet { setNeedsDisplay() }
     }
-
+    
     
     override func draw(_ rect: CGRect) {
         
