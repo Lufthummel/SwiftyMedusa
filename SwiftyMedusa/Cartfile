@@ -1,4 +1,5 @@
-github "Lufthummel/SwiftlySalesforce"
+github "Lufthummel/SwiftlySalesforce" ~> 3.0.0
+github "DaveWoodCom/XCGLogger" ~> 4.0.0
 
 
 

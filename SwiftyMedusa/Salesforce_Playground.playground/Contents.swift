@@ -1,6 +1,6 @@
 //: Playground - for testing SF authentication & rest requests
 import UIKit
-import XCPlayground
+import PlaygroundSupport
 import WebKit
 import Foundation
 
@@ -11,8 +11,8 @@ import Foundation
 let consumerKey = "3MVG9xOCXq4ID1uFuYvTJhxH5YFcbPl5OW.wzPUD6AotC.l7Lj1cYKDaKnZGN24RY.rsFXhMCGl9wkf4iTshy"
 let consumerSecret = "4015431462162252575"
 let redirectUri = "https://minaxsoft-developer-edition.na17.force.com"
-let username = "dave%40minaxsoft.de"
-let pw = "****"
+let username = "dave%40dreamforce.com"
+let pw = "Dreamforce2016"
 let securityToken = "DpjyNlNvV3V4Ze1rJ1oG8ZsW"
 let pws = pw + securityToken
 
@@ -29,7 +29,7 @@ let oauthAuthString = "response_type=\(code)&client_id=\(consumerKey)&redirect_u
 let oauthPostString = "response_type=\(code)&grant_type=\(grantType)&client_id=\(consumerKey)&client_secret=\(consumerSecret)&redirect_uri=\(redirectUri)"
 // -------------------------------------------------------------------------------"
 
-XCPlaygroundPage.currentPage.needsIndefiniteExecution = true //async stuff
+PlaygroundPage.current.needsIndefiniteExecution = true //async stuff
 
 
 let posturl = myInstanceCode + "?" + oauthAuthString
@@ -42,14 +42,14 @@ let web = WKWebView(frame: frame)
 
 if let oauthPage = NSURL(string: posturl) {
     
-    var rq = NSMutableURLRequest(URL: oauthPage)
+    var rq = NSMutableURLRequest(url: oauthPage as URL)
     
-    rq.HTTPMethod = "POST"
+    rq.httpMethod = "POST"
     rq.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
     
-    web.loadRequest(rq)
+    web.load(rq as URLRequest)
     
-    XCPlaygroundPage.currentPage.liveView = web
+    PlaygroundPage.current.liveView = web
     
 }
 
@@ -57,28 +57,28 @@ if let oauthPage = NSURL(string: posturl) {
 
 
 //username - password flow -> for demonstration only!!!
-/*
+
  let pwurl = myInstanceToken
  if let oauthPWPage = NSURL(string: pwurl) {
  
-    var rq = NSMutableURLRequest(URL: oauthPWPage)
+    var rq = NSMutableURLRequest(url: oauthPWPage as URL)
     
-    rq.HTTPMethod = "POST"
+    rq.httpMethod = "POST"
     rq.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-    rq.HTTPBody = oauthPwString.dataUsingEncoding(NSUTF8StringEncoding)
-    let task = NSURLSession.sharedSession().dataTaskWithRequest(rq) { data, response, error in
-        let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+    rq.httpBody = oauthPwString.data(using: String.Encoding.utf8)
+    let task = URLSession.shared.dataTask(with: rq as URLRequest) { data, response, error in
+        let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
         let responseString = response?.description
-        let errorString = error?.description
+        //let errorString = error?.description
         print("\n responseString = \(responseString) \n")
         print("dataString = \(dataString) \n")
-        print("errorString = \(errorString)")
+        //print("errorString = \(errorString)")
     }
     task.resume()
     
 
  }
  
-*/
+
  
 

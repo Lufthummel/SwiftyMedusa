@@ -17,6 +17,7 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
+    // 1. ---> MOTION KIT FOR EASY ACCESS TO ACCELEROMETER DATA
     let motionKit = MotionKit() //only one instance should run at a time!!!
     let locationManager = CLLocationManager() // GPS data
     
@@ -45,7 +46,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var accZ : Double = 0.0
     var accX : Double = 0.0 { //update the label
         didSet {
-            NSOperationQueue.mainQueue().addOperationWithBlock(){ //ensure that updates on UI from main thread only...
+            OperationQueue.main.addOperation(){ //ensure that updates on UI from main thread only...
                 self.accLabel.text = "x = \(self.accX.sf4) y = \(self.accY.sf4) z = \(self.accZ.sf4)"
             }
 
@@ -70,6 +71,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         
         // get the accelerometer data
+        
+        
+        
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        
+        // 2. --> SEE THE POWER OF SWIFT - JUST CODE THE COMPLETION HANDLER AND ALL ASYNC STUFF IS SOLVED!!!
+        
         motionKit.getAccelerometerValues(0.1){
             (x, y, z) in
             //Interval is in seconds. And now you have got the x, y and z values here
@@ -88,6 +96,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         self.logIn()
         
+        // ######################################################################################################
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,7 +106,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     // ------------ delegate for location service
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         
         let location = locations.last! as CLLocation
@@ -109,13 +119,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // !!!!!!  accident !!!!!
     
-    func accidentHappened(x: Double, y:Double, z:Double) {
+    
+    
+    func accidentHappened(_ x: Double, y:Double, z:Double) {
         
         //check if we are actice
         if (active) {
             //toogle active state to avoid that to many cases are created
             active = !active
-            NSOperationQueue.mainQueue().addOperationWithBlock(){
+            OperationQueue.main.addOperation(){
                 self.listenButton.activity = !self.listenButton.activity
             }
             //create a case
@@ -126,9 +138,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
 
-    // ------------ Actions
+    // MARK ACTION ------------ Actions
     
-    @IBAction func listenButtonPressed(sender: AnyObject) {
+    @IBAction func listenButtonPressed(_ sender: AnyObject) {
         print("pressed")
         //viewCase()
         //createCase()
@@ -137,9 +149,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         listenButton.activity = !listenButton.activity
     }
     
-    @IBAction func logoutButtonPressed(sender: AnyObject) {
+    @IBAction func logoutButtonPressed(_ sender: AnyObject) {
         
-        if let app = UIApplication.sharedApplication().delegate as? LoginViewPresentable {
+        if let app = UIApplication.shared.delegate as? LoginViewPresentable {
             print("logout...")
             app.logOut().then {
                 () -> () in
@@ -151,7 +163,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    // -------- Salesforce ------
+    // -------- Salesforce Integration ------
+    
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    // 3. --> SEE HOW EASY THE LOGIN PROCEDURE CAN BE ...
+    // --> SEE PROMISEKIT AND CHAINING IN ACTION --> NEVER WORRY ABOUT ALL THE ASYNC STUFF, JUST CODE YOUR SEQUENCE
     
     //perform the OAuth2 dance...
     func logIn() -> Promise<String> {
@@ -164,7 +181,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 fulfill(user)
             } else {
                 firstly {
-                    SalesforceAPI.Identity.request()
+                    SalesforceAPI.identity.request()
                     }.then {
                         // Get user ID
                         (identityInfo) -> String in
@@ -179,32 +196,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         //print ("user = \(self.user)")
                         fulfill(self.user)
                         
-                    }.error { error in
+                    }.catch { error in
                         print("ups")
                     }
             }
         }
     } //end func
     
-    // just a test function
-    func viewCase() {
-        let fields = ["Name", "hkr__Acc_X__c", "hkr__Acc_Y__c", "hkr__Acc_Z__c", "CurrencyIsoCode", "hkr__Geo__Latitude__s", "hkr__Geo__Longitude__s" ]
-        
-            SalesforceAPI.ReadRecord(type: "hkr__DF_Case__c", id: "a08o000000y6eT3AAI", fields: fields).request()
-                .then {
-                    (json) -> () in
-                    print("json = \(json)")
-                }.error { error in
-                    print("ups \(error)")
-                }
-
-    }
+    
+    // ######################################################################################################
+    
+    
+    
+    
+    
+    
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    // 4. AND FINALLY CREATE A CASE -  THATS ALL YOU NEED TO DO !!!
     
     // create the case...this is a very simple demonstration here
-    func createCase(x: Double, y:Double, z:Double, long: Double, lat:Double) {
+    func createCase(_ x: Double, y:Double, z:Double, long: Double, lat:Double) {
         
-        let fields = ["Name": "Eggs broken", "hkr__Acc_X__c" : "\(x)", "hkr__Acc_Y__c": "\(y)", "hkr__Acc_Z__c" : "\(z)", "CurrencyIsoCode":"EUR", "hkr__Geo__Latitude__s" : "\(long)", "hkr__Geo__Longitude__s":"\(lat)" ]
-        SalesforceAPI.CreateRecord(type: "hkr__DF_Case__c", fields: fields).request()
+        let fields = ["Name": "All Eggs are broken", "hkr__Acc_X__c" : "\(x)", "hkr__Acc_Y__c": "\(y)", "hkr__Acc_Z__c" : "\(z)", "CurrencyIsoCode":"EUR", "hkr__Geo__Latitude__s" : "\(long)", "hkr__Geo__Longitude__s":"\(lat)" ]
+        SalesforceAPI.createRecord(type: "hkr__DF_Case__c", fields: fields as [String : AnyObject]).request()
             .then {
                 (result) -> () in
                 // Update the local model
@@ -212,33 +227,51 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }.always {
                 // Update the UI
                 print("active state = \(self.active)")
-            }.error { error in
+            }.catch { error in
                 print("ups \(error)")
         }
         print("case created")
     } //end func
 
+    
+    // ######################################################################################################
+}
+
+
+
+// just a test function
+func viewCase() {
+    let fields = ["Name", "hkr__Acc_X__c", "hkr__Acc_Y__c", "hkr__Acc_Z__c", "CurrencyIsoCode", "hkr__Geo__Latitude__s", "hkr__Geo__Longitude__s" ]
+    
+    SalesforceAPI.readRecord(type: "hkr__DF_Case__c", id: "a08o000000y6eT3AAI", fields: fields).request()
+        .then {
+            (json) -> () in
+            print("json = \(json)")
+        }.catch { error in
+            print("ups \(error)")
+    }
+    
 }
 
 
 //extension for number formatting
 // get Float or Double with 2 significant figure precision
-var numberFormatter = NSNumberFormatter()
+var numberFormatter = NumberFormatter()
 extension Float {
     var sf4:String {
         get {
-            numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+            numberFormatter.numberStyle = NumberFormatter.Style.decimal
             numberFormatter.maximumSignificantDigits = 4
-            return numberFormatter.stringFromNumber(self)!
+            return numberFormatter.string(from: NSNumber(value: self))!
         }
     }
 }
 extension Double {
     var sf4:String {
         get {
-            numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+            numberFormatter.numberStyle = NumberFormatter.Style.decimal
             numberFormatter.maximumSignificantDigits = 4
-            return numberFormatter.stringFromNumber(self)!
+            return numberFormatter.string(from: NSNumber(value: self))!
         }
     }
 }

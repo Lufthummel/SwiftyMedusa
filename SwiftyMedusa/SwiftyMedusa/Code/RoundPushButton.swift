@@ -12,8 +12,8 @@ import UIKit
 @IBDesignable
 class RoundPushButtonView: UIButton {
     
-    @IBInspectable var fillColor: UIColor = UIColor.greenColor()
-    @IBInspectable var activeColor: UIColor = UIColor.redColor()
+    @IBInspectable var fillColor: UIColor = UIColor.green
+    @IBInspectable var activeColor: UIColor = UIColor.red
     @IBInspectable var isAddButton: Bool = true
     
     var activity = false {
@@ -21,9 +21,9 @@ class RoundPushButtonView: UIButton {
     }
     
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
-        let path = UIBezierPath(ovalInRect: rect)
+        let path = UIBezierPath(ovalIn: rect)
         if activity {
             activeColor.setFill()
         } else {
@@ -44,30 +44,30 @@ class RoundPushButtonView: UIButton {
         
         //move the initial point of the path
         //to the start of the horizontal stroke
-        plusPath.moveToPoint(CGPoint(
+        plusPath.move(to: CGPoint(
             x:bounds.width/2 - plusWidth/2 + 0.5,
             y:bounds.height/2 + 0.5))
         
         //add a point to the path at the end of the stroke
-        plusPath.addLineToPoint(CGPoint(
+        plusPath.addLine(to: CGPoint(
             x:bounds.width/2 + plusWidth/2 + 0.5,
             y:bounds.height/2 + 0.5))
         
         //Vertical Line
         if isAddButton {
             //move to the start of the vertical stroke
-            plusPath.moveToPoint(CGPoint(
+            plusPath.move(to: CGPoint(
                 x:bounds.width/2 + 0.5,
                 y:bounds.height/2 - plusWidth/2 + 0.5))
             
             //add the end point to the vertical stroke
-            plusPath.addLineToPoint(CGPoint(
+            plusPath.addLine(to: CGPoint(
                 x:bounds.width/2 + 0.5,
                 y:bounds.height/2 + plusWidth/2 + 0.5))
         }
         
         //set the stroke color
-        UIColor.whiteColor().setStroke()
+        UIColor.white.setStroke()
         
         //draw the stroke
         plusPath.stroke()

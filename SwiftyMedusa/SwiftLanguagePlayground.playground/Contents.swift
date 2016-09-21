@@ -4,7 +4,7 @@ import UIKit
 
 
 // Basic Print Statement
-print("Hello Dreamforce!!!!")
+print("Hello Dreamforcer !!!!")
 
 print("great to be here, isn't it??")
 
@@ -24,6 +24,12 @@ let testConst :Float = 4
 // Avoid divide by zero, returns 0 when second parameter is zero
 10 / 5
 //10 / 0
+
+let base:Double = 4.0
+let power:Double = 2.0
+
+let sqr = pow(base, power)
+print(" x * x = \(sqr)")
 
 // Type Casting
 let label = "The width is "
@@ -167,7 +173,7 @@ secondForLoop
 func greet(name: String, day: String) -> String {
     return "Hello \(name), today is \(day)."
 }
-greet("Bob", day: "Tuesday")
+greet(name: "Bob", day: "Tuesday")
 
 // Multiple return values - Tuples
 func getGasPrices() -> (Double, Double, Double) {
@@ -184,7 +190,7 @@ func sumOf(numbers: Int...) -> Int {
     return sum
 }
 sumOf()
-sumOf(42, 597, 12)
+sumOf(numbers: 42, 597, 12)
 
 // Nested Functions
 func returnFifteen() -> Int {
@@ -220,7 +226,7 @@ func lessThanTen(number: Int) -> Bool {
     return number < 10
 }
 var numbers = [20, 19, 7, 12]
-hasAnyMatches(numbers, condition: lessThanTen)
+hasAnyMatches(list: numbers, condition: lessThanTen)
 
 // Closures
 
@@ -349,7 +355,7 @@ class Counter {
     }
 }
 var counter = Counter()
-counter.incrementBy(2, numberOfTimes: 7)
+counter.incrementBy(amount: 2, numberOfTimes: 7)
 
 // Null / Nil Check
 let optionalSquare: Square? = Square(sideLength: 2.5, name: "optional square")
@@ -487,7 +493,7 @@ func myRepeat<ItemType>(item: ItemType, times: Int) -> [ItemType] {
     }
     return result
 }
-myRepeat("knock", times: 4)
+myRepeat(item: "knock", times: 4)
 
 // Generic Enums
 enum OptionalValue<T> {
